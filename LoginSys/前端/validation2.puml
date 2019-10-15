@@ -1,0 +1,14 @@
+@startuml
+
+start
+
+while(length ok?) is (no)
+:show "length tips";
+endwhile (yes)
+while(unUsed?) is (yes)
+:show "used";
+endwhile (no)
+:show "unUsed";
+stop
+
+@enduml

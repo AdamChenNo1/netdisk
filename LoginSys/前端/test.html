@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--引入样式-->
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#1").click(function(){
+    $("#empName_input").parent().addClass("has-sucess has-feedback");
+    $(ele).next("span").text(msg).next("span").addClass("glyphicon glyphicon-remove form-control-feedback");
+  });
+  $("#2").click(function(){
+    $(ele).parent().removeClass("has-sucess has-error has-feedback");
+    $(ele).next("span").text("").next("span").removeClass("glyphicon glyphicon-remove form-control-feedback");
+  });
+});
+</script>
+<style type="text/css">
+.intro
+{
+font-size:120%;
+color:red;
+}
+</style>
+</head>
+<body>
+
+<h1>This is a heading</h1>
+<div>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="empName_input" class="col-sm-2 control-label">empName</label>
+            <div class="col-sm-10">
+                <input type="text" name="empName" class="form-control" id="empName_input" placeholder="empName">
+                <span class="help-block"></span>
+                <span id="empName_input_feedBack"></span>
+    
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email_input" class="col-sm-2 control-label">email</label>
+            <div class="col-sm-10">
+                <input type="email" name="email" class="form-control" id="email_input" placeholder="email@163.com">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">empGender</label>
+            <div class="col-sm-10">
+                <label class="radio-inline">
+                    <input type="radio" name="empGender" id="empGender_input1" value="M" checked="checked">男
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="empGender" id="empGender_input2" value="F">女
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">deptName</label>
+            <div class="col-sm-4">
+                <select class="form-control" name="dId" id="dept_add_select">
+                    <!--提交部门id-->
+                </select>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<button id="1">add</button>
+<button id="2">Remove</button>
+<button id="3">getBasePath</button>
+
+</body>
+</html>
