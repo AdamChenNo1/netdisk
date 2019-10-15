@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>一轮圆月</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://cdn.bootcss.com/font-awesome/5.10.0-12/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet">
+<!--    <link rel="stylesheet" type="text/less" href="static/welcome/css/less/lib/bootstrap/less/modals.less" />-->
+    <link rel="stylesheet" type="text/css" href="static/welcome/css/welcome.css" />
+</head>
+
+
+<body>
+<!-- 顶部半透明容器 (未登录)-->
+<div  class="navbar navbar-static-top row" >
+    <!--用户信息按钮-->
+    <div class="col-xs-2 aTopAndBottom ">
+        <a href="" id="userInfo">
+            <span class="glyphicon glyphicon-home "></span>
+            <span id="userText" user="">未登录</span>
+        </a>
+    </div>
+    <!--登录按钮-->
+    <div id="loginHref" class="col-xs-1 col-xs-offset-8 aTopAndBottom">
+        <a href="" data-toggle="modal" data-target="#login">
+            <span class="glyphicon glyphicon-log-in"></span>
+            <span id="loginText">登录</span>
+        </a>
+    </div>
+    <!--注销按钮-->
+    <div id="logoutHref" class="col-xs-1 col-xs-offset-9 aTopAndBottom hidden">
+        <a href="" data-toggle="modal" data-target="#logout">
+            <span class="glyphicon glyphicon-log-out"></span>
+            <span id="logoutText">注销</span>
+        </a>
+    </div>
+    <!--注册按钮-->
+    <div id="registerHref" class="col-xs-1 aTopAndBottom">
+        <a href="" data-toggle="modal" data-target="#register">
+            <span class="glyphicon glyphicon-registration-mark"></span>
+            <span id="registText">注册</span>
+        </a>
+    </div>
+
+
+</div>
+
+<br>
+<!-- 应用 -->
+    <div  class="row">
+
+        <h2 class="bs-docs-featurette-title text-center">欢迎来到一轮新月</h2>
+
+
+        <hr class="half-rule">
+        <div id="app-beforeLogin" class="row">
+            <p class="lead text-center">登录之后即可查看应用</p>
+        </div>
+        <div id="app" class="row hidden">
+            <div class="col-sm-4">
+                <form id="tokenSet" hidden>
+                    <input type="password" name="cname" id="cname">
+                    <input type="password" name="cval" id="cval">
+                </form>
+                <a id="netdisk" href="" class="btn btn-outline btn-lg btn-block">
+                    <img src="static/welcome/img/storage.png" class="img-responsive center-block">
+                    <h3 class="text-center">存储空间</h3>
+                </a>
+            </div>
+        </div>
+
+        <hr class="half-rule">
+
+        <p class="lead text-center">GitHub上有项目的全部代码,想要了解详情请点击下面的按钮</p>
+        <a href="https://github.com/twbs/bootstrap" class="btn btn-outline btn-lg btn-block">GitHub 项目主页</a>
+
+    </div>
+
+<!-- 注册 -->
+<div id="register" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-title">
+                <h1 class="text-center">注册</h1>
+            </div>
+            <div class="modal-body">
+                <form id="register_form"  class="form-group" >
+                    <div class="form-group">
+                        <label>用户名</label>
+                        <input class="form-control" type="text" name="name" placeholder="2-5位中文或者6-16位字母和数字">
+                    </div>
+                    <div class="form-group">
+                        <label>密码</label>
+                        <input class="form-control" type="password" name="password" placeholder="至少6位字母或数字">
+                    </div>
+                    <br/>
+                    <div class="form-group">
+                        <label>再次输入密码</label>
+                        <input class="form-control" type="password" name="password_confirm" placeholder="至少6位字母或数字">
+                    </div>
+                    <div class="text-right">
+                        <button class="btn btn-primary" type="submit" style="background-color: #3a8cd2b3;border: 0px solid transparent;">提交</button>
+                        <button class="btn btn-danger" data-dismiss="modal" style="background-color: #fb5e5999;border: 0px solid transparent;">取消</button>
+                    </div>
+                    <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">
+                        <font style="font-size: 13px;">已有账号？点我登录</font>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 注册 end-->
+
+<!-- 登录 -->
+<div id="login" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-title">
+                <h1 class="text-center">登录</h1>
+            </div>
+            <div class="modal-body">
+                <form id="login_form" class="form-group">
+                    <div class="form-group">
+                        <label>用户名</label>
+                        <input class="form-control" type="text" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label>密码</label>
+                        <input class="form-control" type="password" name="password">
+                    </div>
+                    <div class="text-right">
+                        <button id="loginBtn" class="btn btn-primary" style="background-color: #3a8cd2b3; border: 0px solid transparent;">登录</button>
+                        <button class="btn btn-danger" data-dismiss="modal" style="background-color: #fb5e5999;border: 0px solid transparent;">取消</button>
+                    </div>
+                    <a href="" data-toggle="modal" data-dismiss="modal" data-target="#register">
+                        <font style="font-size: 13px;">还没有账号？点我注册</font>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 登录 end -->
+
+<!-- 登录错误 -->
+<div id="login_error" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+                <h3 class="text-center">好像出现了问题</h3>
+            </div>
+            <div class="modal-body">
+                <span id="errorInfo" class="text-center"></span>
+            </div>
+            <div class="modal-body">
+                <div class="text-right">
+                    <a href="" data-toggle="modal" data-dismiss="modal" data-target="#register">
+                        <font style="font-size: 13px;">还没有账号？点我注册</font>
+                    </a>
+                    <a href="" class="btn btn-warning" data-toggle="modal" data-dismiss="modal" data-target="#login">
+                        再次尝试
+                     </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 登录错误 end -->
+
+<!--注销-->
+<div id="logout" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-title">
+                <h1 class="text-center">注销</h1>
+            </div>
+            <div class="modal-body">
+                <p class="lead text-center">确认注销？</p>
+                <div class="text-right">
+                    <button id="logoutBtn" class="btn btn-primary" style="background-color: #3a8cd2b3; border: 0px solid transparent;">注销</button>
+                    <button class="btn btn-danger" data-dismiss="modal" style="background-color: #fb5e5999;border: 0px solid transparent;">取消</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<!--升级使用外部资源，节约个人网站带宽-->
+<script src="https://cdn.bootcss.com/less.js/3.9.0/less.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-validator/0.5.3/js/language/zh_CN.js"></script>
+<script src="static/welcome/js/path.js"></script>
+<script src="static/welcome/js/common.js"></script>
+<script src="static/welcome/js/welcome.js"></script>
+<script src="static/welcome/js/login.js"></script>
+<script src="static/welcome/js/logout.js"></script>
+<script src="static/welcome/js/register.js"></script>
+<script src="static/welcome/js/modal.js"></script>
+<script src="static/welcome/js/methods.js"></script>
+</html>
