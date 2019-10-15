@@ -1,0 +1,56 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+
+	<display-name>Archetype Created Web Application</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<servlet-name>jersey-serlvet</servlet-name>
+		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>jersey.config.server.provider.packages</param-name>
+			<param-value>com.WebService</param-value>
+		</init-param>
+		<init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>Config.RestApplication</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>jersey-serlvet</servlet-name>
+		<url-pattern>/netdisk/*</url-pattern>
+	</servlet-mapping>
+	<context-param>
+		<description>上传文件的存储路径</description>
+		<param-name>netdisk</param-name>
+		<param-value>/root/netdisk/</param-value>
+	</context-param>
+	<context-param>
+		<description>登录后添加的session参数名</description>
+		<param-name>userSessionKey</param-name>
+		<param-value>user</param-value>
+	</context-param>
+	<context-param>
+		<description>未登录session重定向到登录页面</description>
+		<param-name>redirectPage</param-name>
+		<param-value>http://localhost/LoginSys/home</param-value>
+	</context-param>
+	<!-- 不需要检查或者拦截的URL列表 -->
+	<context-param>
+		<param-name>checkingNeedlessUrls</param-name>
+		<param-value>/cookie</param-value>
+	</context-param>
+	<filter>
+		<filter-name>loginFilter</filter-name>
+		<filter-class>Filter.LoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>loginFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+</web-app>
